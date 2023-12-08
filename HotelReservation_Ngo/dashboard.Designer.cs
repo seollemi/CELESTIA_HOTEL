@@ -98,7 +98,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.folder;
+            pictureBox1.Image = Properties.Resources.Celestia_Hotel_Serviced_Apartment;
             pictureBox1.Location = new Point(176, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(0, 74);
