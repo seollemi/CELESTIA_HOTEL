@@ -157,9 +157,9 @@
             // 
             button5.Location = new Point(17, 442);
             button5.Name = "button5";
-            button5.Size = new Size(91, 43);
+            button5.Size = new Size(108, 43);
             button5.TabIndex = 30;
-            button5.Text = "Back";
+            button5.Text = "Logout";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
@@ -243,6 +243,7 @@
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Front_Desk_account_management";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Front_Desk_account_management";
             Load += Front_Desk_account_management_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

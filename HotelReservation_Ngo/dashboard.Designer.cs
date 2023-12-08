@@ -98,7 +98,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.Celestia_Hotel_Serviced_Apartment;
+            pictureBox1.Image = Properties.Resources._403612247_365740505945792_7750348790891412290_n;
             pictureBox1.Location = new Point(176, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(0, 74);
@@ -138,8 +138,9 @@
             label2.Name = "label2";
             label2.Size = new Size(204, 29);
             label2.TabIndex = 4;
-            label2.Text = "Page Unavailable";
+            label2.Text = "Celestia Hotel";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // panel8
             // 
@@ -158,7 +159,7 @@
             label1.Name = "label1";
             label1.Size = new Size(204, 23);
             label1.TabIndex = 2;
-            label1.Text = "Contact your system administrator if the issue persists.";
+            label1.Text = "Where your days are limitless.\r\n";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel7

@@ -66,7 +66,6 @@ namespace HotelReservation_Ngo
         {
             MessageBox.Show("Function still not available. Sorry.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -168,6 +167,42 @@ namespace HotelReservation_Ngo
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int rid = Convert.ToInt32(selectedRow.Cells["id"].Value); // Assuming "ID" is the column name for rdetails.rid
 
+                // Call the DeleteRoom method with the extracted 'rid'
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM reserve WHERE id = @ID";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@ID", rid);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Reservation deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DisplayReservations();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reservation deletion failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                { }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@
             panel1 = new Panel();
             panel6 = new Panel();
             panel11 = new Panel();
+            button3 = new Button();
             button4 = new Button();
             panel9 = new Panel();
             button1 = new Button();
@@ -66,7 +67,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(324, 0);
+            button2.Location = new Point(162, 0);
             button2.Name = "button2";
             button2.Size = new Size(134, 32);
             button2.TabIndex = 19;
@@ -124,12 +125,23 @@
             // 
             // panel11
             // 
+            panel11.Controls.Add(button3);
             panel11.Controls.Add(button2);
             panel11.Dock = DockStyle.Right;
             panel11.Location = new Point(3, 0);
             panel11.Name = "panel11";
             panel11.Size = new Size(490, 32);
             panel11.TabIndex = 13;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(321, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(148, 32);
+            button3.TabIndex = 20;
+            button3.Text = "Delete";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -221,5 +233,6 @@
         private Panel panel8;
         private DataGridView dataGridView1;
         private Button button2;
+        private Button button3;
     }
 }

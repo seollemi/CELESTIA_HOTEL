@@ -18,6 +18,7 @@ namespace HotelReservation_Ngo
         public rooms()
         {
             InitializeComponent();
+            connection.Open();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace HotelReservation_Ngo
         {
             try
             {
-                connection.Open();
+                //connection.Open();
 
                 string query = "SELECT rdetails.rid as ID, rdetails.rname as Name, rdetails.occupancy as Occupancy, rdetails.price as Price, " +
                     "(SELECT roomtype.rtype_name FROM roomtype WHERE roomtype.rtypeid = rdetails.rtypeid) AS RoomType," +
@@ -85,5 +86,46 @@ namespace HotelReservation_Ngo
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int rid = Convert.ToInt32(selectedRow.Cells["ID"].Value); // Assuming "ID" is the column name for rdetails.rid
+
+                // Call the DeleteRoom method with the extracted 'rid'
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM rdetails WHERE rid = @RoomID";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@RoomID", rid);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Room deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refresh the DataGridView after deletion
+                        displayData(); // Call the method responsible for displaying rooms to refresh the data
+                    }
+                    else
+                    {
+                        MessageBox.Show("Room deletion failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                { }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

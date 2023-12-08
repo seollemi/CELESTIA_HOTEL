@@ -35,7 +35,7 @@
             panel4 = new Panel();
             panel5 = new Panel();
             panel6 = new Panel();
-            textBox1 = new TextBox();
+            button2 = new Button();
             panel11 = new Panel();
             button4 = new Button();
             panel9 = new Panel();
@@ -100,7 +100,7 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(textBox1);
+            panel6.Controls.Add(button2);
             panel6.Controls.Add(panel11);
             panel6.Controls.Add(button4);
             panel6.Controls.Add(panel9);
@@ -111,13 +111,16 @@
             panel6.Size = new Size(948, 32);
             panel6.TabIndex = 10;
             // 
-            // textBox1
+            // button2
             // 
-            textBox1.Dock = DockStyle.Bottom;
-            textBox1.Location = new Point(0, 9);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(608, 23);
-            textBox1.TabIndex = 14;
+            button2.Dock = DockStyle.Right;
+            button2.Location = new Point(480, 0);
+            button2.Name = "button2";
+            button2.Size = new Size(128, 32);
+            button2.TabIndex = 14;
+            button2.Text = "Delete";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panel11
             // 
@@ -171,6 +174,7 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(16, 96);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(948, 415);
             dataGridView1.TabIndex = 12;
@@ -194,7 +198,6 @@
             Text = "rooms";
             Load += rooms_Load;
             panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -212,8 +215,8 @@
         private Button button1;
         private Panel panel8;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
         private Panel panel11;
         private Button button4;
+        private Button button2;
     }
 }
