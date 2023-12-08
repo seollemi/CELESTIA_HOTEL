@@ -64,7 +64,11 @@ namespace HotelReservation_Ngo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Function still not available. Sorry.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            int selectedID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+            // Pass the selected ID to the update form
+            Update updateForm = new Update(selectedID, this);
+            updateForm.Show();
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
